@@ -24,8 +24,39 @@ public struct book
 
 
 
+
 namespace ConsoleApp1
 {
+
+
+
+    class Test
+    {
+        private int id;
+        private int age;
+        private string name;
+
+        public void make(int i, int a, string n)
+        {
+            id = i;
+            age = a;
+            name = n;
+        }
+        public int getAge()
+        {
+            return age;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
 
     class Program
     {
@@ -33,11 +64,15 @@ namespace ConsoleApp1
         {
 
             book b = new book();
-            
+
+            Test t = new Test();
+
+            t.make(1, 23, "sadi");
+            Console.WriteLine(t.getAge());
 
             b.getValues(1, "python 3", "michael john");
             b.display();
-            Console.WriteLine("Hello World!");
+            Console.ReadKey();
         }
     }
 }
