@@ -1,77 +1,44 @@
 ﻿using System;
-
-public struct book
-{
-    public int id;
-    public string bookName;
-    public string author;
-
-    public void getValues(int i,string b,string a)
-    {
-        id = i;
-        bookName = b;
-        author = a;
-
-    }
-
-    public void display()
-    {
-        Console.WriteLine("book id {0} is : ",id);
-        Console.WriteLine("bookname is {0} : ",bookName);
-        Console.WriteLine("author is {0} : ",author);
-    }
-};
-
-
-
-
+using System.Collections.Generic;
 namespace ConsoleApp1
 {
-
-
-
-    class Test
-    {
-        private int id;
-        private int age;
-        private string name;
-
-        public void make(int i, int a, string n)
-        {
-            id = i;
-            age = a;
-            name = n;
-        }
-        public int getAge()
-        {
-            return age;
-        }
-
-    }
-
-
-
-
-
-
-
-
-
-
+  
     class Program
     {
+        
         static void Main(string[] args)
         {
 
-            book b = new book();
+            List<int> l = new List<int>();
 
-            Test t = new Test();
+            l.Add(5);
+            l.Add(12);
+            l.Add(2);
+            l.Add(32);
+            l.Add(0);
+            l.Add(120);
+            l.Add(6);
+            l.Add(12);
+            l.Add(2);
 
-            t.make(1, 23, "sadi");
-            Console.WriteLine(t.getAge());
+            Console.WriteLine(l.Contains(7));
+            Console.WriteLine(l.Exists(i=> i>7));
+            Console.WriteLine(l.IndexOf(120));
+            Console.WriteLine(l.LastIndexOf(12));
+            Console.WriteLine(l.LastIndexOf(12,3));
+            Console.WriteLine(l.LastIndexOf(2,4,3));
+            Console.WriteLine(l.Find(i=> i>5));
+            List<int> store = l.FindAll(i => i > 5);
 
-            b.getValues(1, "python 3", "michael john");
-            b.display();
+            store.ForEach(x => Console.WriteLine(x));
+
+            Console.WriteLine(l.FindLast(i=> i>0));
+            Console.WriteLine(l.FindIndex(i => i == 120));
+            Console.WriteLine(l.FindLastIndex(i => i > 2));
+            Console.WriteLine(l.FindLastIndex(3,i=> i>2));
+            Console.WriteLine(l.FindLastIndex(7,7,i=> i>12));
+            
+
             Console.ReadKey();
         }
     }
